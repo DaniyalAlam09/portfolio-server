@@ -43,3 +43,14 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: 'Login failed' });
   }
 }
+
+
+exports.viewUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
