@@ -9,3 +9,5 @@ router.get("/allusers", viewUsers);
 router.get("/my-profile", isAuthenticated, myProfile);
 
 module.exports = router;
+
+

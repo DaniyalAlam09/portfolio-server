@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const validator = require("validator");
 var config = require("config");
 
+
 // User registration endpoint
 exports.register = async (req, res, next) => {
   try {
