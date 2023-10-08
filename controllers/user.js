@@ -45,8 +45,6 @@ exports.register = async (req, res, next) => {
         phoneNo,
         city,
       });
-      // user will automatacally login after registration
-
       const token = jwt.sign(
         {
           _id: user._id,
@@ -75,13 +73,11 @@ exports.register = async (req, res, next) => {
   }
 };
 
-// User authentication endpoint
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email: email }).select("+password");
-    // because select:false for password to select password we use select(+password)
 
     if (!email) {
       return res.status(400).json({
